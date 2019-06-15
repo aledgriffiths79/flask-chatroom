@@ -4,6 +4,10 @@ from flask import Flask
 
 # initialise our new flask application
 app = Flask(__name__)
+messages = []
+
+def add_messages(username, message):
+  message.append("{}: {}".format(username, message))
 
 # create our app root decorator, which is going to be for our index page so that will be ("/")
 @app.route("/")
@@ -14,10 +18,13 @@ def index():
 
 @app.route("/<username>")
 def user(username):
-  return "Hi " + username
+  """Display chat messages"""
+  return "Welcome, {0}".format(username, messages)
 
 @app.route("/<username>/<message>")
 def send_message(username, message):
+  # Docstrings for my function (notes to understand what going on using """write here""")
+  """ Create a new message and redirect back to the chat page """
   return "{0}: {1}".format(username, message)
 
 app.run(debug=True)
