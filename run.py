@@ -1,5 +1,7 @@
 # import os so that we will have access to the environment variables
 import os
+# import datetime module from the datetime library which is a built in module in pythons standard library that allows us to work specifically with dates and times
+from datetime import datetime
 from flask import Flask, redirect
 
 # initialise our new flask application
@@ -8,7 +10,8 @@ messages = []
 
 def add_messages(username, message):
   """Add messages to the 'messages' list"""
-  messages.append("{}: {}".format(username, message))
+  now = datetime.now().strftime("%H:%M:%S")
+  messages.append("({}) {}: {}".format(now, username, message))
 
 def get_all_messages():
   """Get all the messages and separate them with a 'br'"""
