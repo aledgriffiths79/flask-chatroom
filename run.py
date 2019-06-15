@@ -2,7 +2,7 @@
 import os
 # import datetime module from the datetime library which is a built in module in pythons standard library that allows us to work specifically with dates and times
 from datetime import datetime
-from flask import Flask, redirect
+from flask import Flask, redirect, render_template
 
 # initialise our new flask application
 app = Flask(__name__)
@@ -22,7 +22,7 @@ def get_all_messages():
 # define the function that is going to be bound to our decorator: def.index().
 def index():
   """Main page with instructions"""
-  return "To send a message use /USERNAME/MESSAGE"
+  return render_template("index.html")
 
 @app.route("/<username>")
 def user(username):
