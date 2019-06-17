@@ -41,8 +41,8 @@ def user(username):
 
   return render_template("chat.html", username = username, chat_messages = messages)
 
-app.run(debug=True)
-# app.run(host=os.getenv('IP'), port=int(os.getenv('PORT')))
+# app.run(debug=True)
+app.run(host=os.getenv('IP'), port=int(os.getenv('PORT')))
 
 
 
