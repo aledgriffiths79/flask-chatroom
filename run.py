@@ -6,7 +6,7 @@ from flask import Flask, redirect, render_template, request, session, url_for
 
 # initialise our new flask application
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET", "randomstring123")
+# app.secret_key = os.getenv("SECRET", "randomstring123")
 messages = []
 
 def add_message(username, message):
