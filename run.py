@@ -6,6 +6,7 @@ from flask import Flask, redirect, render_template, request, session, url_for
 
 # initialise our new flask application
 app = Flask(__name__)
+# Usually with backend projects you'll use secret keys, the secret key is needed to keep the client-side sessions secure. This isn't as important at the moment, as you're not dealing with personal data, but if you were running a site where user-data was involved, you'd want to use one. 
 app.secret_key = os.getenv("SECRET", "randomstring123")
 messages = []
 
